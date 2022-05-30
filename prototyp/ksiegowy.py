@@ -9,6 +9,5 @@ class ksiegowy(pracownik):
         pass
         #To Do
 
-    def dodajRachunek(self, naleznosc, termin):
-        pass
-        #To Do
+    def stworzRachunek(self, naleznosc, osoba):
+        osoba.dodajRachunek(naleznosc)

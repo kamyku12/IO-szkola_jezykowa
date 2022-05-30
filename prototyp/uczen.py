@@ -1,3 +1,4 @@
+import ocena
 from osoba import osoba
 
 
@@ -9,5 +10,16 @@ class uczen(osoba):
         super().__init__(imie, nazwisko, pesel, telefon)
 
     def sprawdzOceny(self):
-        pass
-        # To Do
+        print("\n" + self.imie + " " + self.nazwisko)
+        if self.oceny:
+            for o in self.oceny:
+                o.print()
+            return
+        else:
+            print("Brak ocen")
+            return
+
+
+
+    def dodajOcene(self, stopien, waga, nauczyciel):
+        self.oceny.append(ocena.ocena(stopien, waga, nauczyciel))

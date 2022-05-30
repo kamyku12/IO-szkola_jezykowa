@@ -6,6 +6,6 @@ class wplata:
         self.kwota = kwota
         self.data = datetime.date.today()
 
-    def oplacRachunek(self, rachunek):
-        pass
-        # To Do
+    def print(self):
+        print("Kwota - " + self.kwota)
+        print("Data - " + str(self.data))

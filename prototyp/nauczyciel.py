@@ -7,16 +7,14 @@ class nauczyciel(pracownik):
         super().__init__(id, imie, nazwisko, pesel, telefon)
 
     def dodajOcene(self, stopien, waga, uczen):
-        pass
-        #To Do
+        uczen.dodajOcene(stopien, waga, self)
 
     def edytujOcene(self, ocena):
         pass
         #To Do
 
     def sprawdzOceny(self, uczen):
-        pass
-        #To Do
+        uczen.sprawdzOceny()
 
     def sprawdzObecnosc(self, grupa):
         pass
@@ -25,3 +23,6 @@ class nauczyciel(pracownik):
     def edytujObecnosc(self, obecnosc):
         pass
         #To Do
+
+    def ImieNazwisko(self):
+        return self.imie + " " + self.nazwisko
