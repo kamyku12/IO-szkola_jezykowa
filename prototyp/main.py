@@ -1,29 +1,30 @@
 import numpy as np
 
-import ksiegowy
-import nauczyciel
-import planista
-import uczen
+
+from models.ksiegowy import ksiegowy
+from models.nauczyciel import nauczyciel
+from models.planista import planista
+from models.uczen import uczen
 
 
 def stworzUczniow():
     u = []
     for i in range(10):
-        u.append(uczen.uczen(i+1, "UczenImie" + str(i+1), "UczenNazwisko" + str(i+1), "12345678901", "123456789", str(i % 3 + 1)))
+        u.append(uczen(i+1, "UczenImie" + str(i+1), "UczenNazwisko" + str(i+1), "12345678901", "123456789", str(i % 3 + 1)))
 
     return u
 
 def stworzNauczycieli():
     n = []
     for i in range(3):
-        n.append(nauczyciel.nauczyciel(i+1, "NauczycielImie" + str(i+1), "NauczycielNazwisko" + str(i+1), "12345678901", "123456789", str(i % 3 + 1)))
+        n.append(nauczyciel(i+1, "NauczycielImie" + str(i+1), "NauczycielNazwisko" + str(i+1), "12345678901", "123456789", str(i % 3 + 1)))
 
     return n
 
 def dodajOceny(nauczyciele, uczniowie):
     print("Dodawanie ocen...")
     for i in range(np.random.randint(1, 30)):
-        nauczyciele[np.random.randint(0, 3)].dodajOcene(np.random.randint(1, 7), np.random.randint(1, 11), uczniowie[np.random.randint(0, 10)])
+        nauczyciele[np.random.randint(0, 3)].dodajOcene(np.random.randint(0, 8), np.random.randint(0, 12), uczniowie[np.random.randint(0, 10)])
 
 
 def sprawdzOceny(uczniowie):
@@ -56,8 +57,8 @@ def pokazRachunki(nauczyciele, uczniowie, planista, ksiegowy):
 def main():
     u = stworzUczniow()
     n = stworzNauczycieli()
-    k = ksiegowy.ksiegowy("421", "Andrzej", "Ackiewicz", "82539012378", "521879023")
-    p = planista.planista("901", "Barbara", "Bckiewicz", "72639012789", "523817950")
+    k = ksiegowy("421", "Andrzej", "Ackiewicz", "82539012378", "521879023")
+    p = planista("901", "Barbara", "Bckiewicz", "72639012789", "523817950")
     dodajOceny(n, u)
     sprawdzOceny(u)
     dodajRachunki(n, u, p, k)
