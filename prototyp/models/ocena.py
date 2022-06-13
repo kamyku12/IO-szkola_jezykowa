@@ -4,7 +4,5 @@ class ocena:
         self.waga = waga
         self.nauczyciel = nauczyciel
 
-    def print(self):
-        print("Stopien - ", self.stopien)
-        print("Waga - ", self.waga)
-        print("Nauczyciel - ", self.nauczyciel.ImieNazwisko())
+    def __str__(self):
+        return "Stopień - " + str(self.stopien) + "\nWaga - " + str(self.waga) + "\nNauczyciel - " + str(self.nauczyciel)

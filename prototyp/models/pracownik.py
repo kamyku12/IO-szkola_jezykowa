@@ -1,4 +1,4 @@
-from osoba import osoba
+from models.osoba import osoba
 
 
 class pracownik(osoba):

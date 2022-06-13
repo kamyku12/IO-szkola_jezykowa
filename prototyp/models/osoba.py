@@ -1,4 +1,4 @@
-import rachunek
+from models.rachunek import rachunek
 
 
 class osoba:
@@ -13,20 +13,31 @@ class osoba:
         pass
         # To Do
 
-    def dodajRachunek(self, naleznosc):
-        self.rachunki.append(rachunek.rachunek(naleznosc))
+    def dodajRachunek(self, naleznosc, comment):
+        if naleznosc <= 0.00:
+            print("Należność nie może być wartością mniejszą lub równą zero")
+            return
+
+        self.rachunki.append(rachunek(naleznosc, comment))
 
     def sprawdzRachunki(self):
         print("\n" + self.ImieNazwisko())
-        for r in self.rachunki:
-            r.print()
+        if self.rachunki:
+            for r in self.rachunki:
+                print(r)
+            return
+        else:
+            print("Brak rachunków")
+            return
+
+
 
     def sprawdzWplaty(self):
         print("\n" + self.ImieNazwisko())
         for r in self.rachunki:
             print(r.id)
             for w in r.wplaty:
-                w.print()
+                print(w)
 
     def oplacRachunek(self, rachunek, ile):
         for r in self.rachunki:

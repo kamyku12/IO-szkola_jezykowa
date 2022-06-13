@@ -1,5 +1,5 @@
-import ocena
-from osoba import osoba
+from models.ocena import ocena
+from models.osoba import osoba
 
 
 class uczen(osoba):
@@ -13,11 +13,12 @@ class uczen(osoba):
         print("\n" + self.imie + " " + self.nazwisko)
         if self.oceny:
             for o in self.oceny:
-                o.print()
+                print(o)
             return
         else:
             print("Brak ocen")
             return
+
 
 
 
@@ -30,6 +31,6 @@ class uczen(osoba):
             print("Nieprawidlowa waga oceny")
             return
 
-        self.oceny.append(ocena.ocena(stopien, waga, nauczyciel))
+        self.oceny.append(ocena(stopien, waga, nauczyciel))
         print("Dodano ocenę")
         return

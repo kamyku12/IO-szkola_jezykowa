@@ -1,4 +1,4 @@
-from pracownik import pracownik
+from models.pracownik import pracownik
 
 
 class nauczyciel(pracownik):
@@ -24,5 +24,5 @@ class nauczyciel(pracownik):
         pass
         #To Do
 
-    def ImieNazwisko(self):
+    def __str__(self):
         return self.imie + " " + self.nazwisko

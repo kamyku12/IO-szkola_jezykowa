@@ -1,17 +1,18 @@
 import datetime as dt
 import numpy as np
 
-import wplata
+from models.wplata import wplata
 
 
 class rachunek():
-    def __init__(self, naleznosc):
+    def __init__(self, naleznosc, comment):
         self.id = np.random.randint(100, 2000)
         self.naleznosc = round(naleznosc, 2)
         self.saldo = -round(naleznosc, 2)
         self.oplacone = False
         self.termin = dt.date.today() + dt.timedelta(days=90)
         self.wplaty = []
+        self.comment = comment
 
 
     def oplac(self, ile):
@@ -19,7 +20,7 @@ class rachunek():
             print("Nie można utworzyć wpłaty dla wartości mniejszych lub równych 0.00zł")
             return
 
-        self.wplaty.append(wplata.wplata(ile))
+        self.wplaty.append(wplata(ile))
         self.saldo = self.saldo + ile
         if self.saldo > 0:
             print("Przelano za dużo, zwracamy " + self.saldo + " nadplaty")
@@ -30,14 +31,5 @@ class rachunek():
         return
 
     def __str__(self):
-        return "Id - " + self.id + "\nNależność - " + self.naleznosc + "\nSaldo - " + self.saldo
-
-    def print(self):
-        print("Id - " + self.id)
-        print("Należnosc - " + self.naleznosc)
-        print("Saldo - " + self.saldo)
-        if self.oplacone:
-            print("Oplacone - tak")
-        else:
-            print("Oplacone - nie")
-        print("Termin - " + str(self.termin)
+        return "Id - " + str(self.id) + "\nNależność - " + str(self.naleznosc) + \
+               "\nSaldo - " + str(self.saldo) + "\nKomentarz - " + str(self.comment)

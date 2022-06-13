@@ -22,29 +22,32 @@ def stworzNauczycieli():
     return n
 
 def dodajOceny(nauczyciele, uczniowie):
-    print("Dodawanie ocen...")
+    print("\nDodawanie ocen...")
     for i in range(np.random.randint(1, 30)):
         nauczyciele[np.random.randint(0, 3)].dodajOcene(np.random.randint(0, 8), np.random.randint(0, 12), uczniowie[np.random.randint(0, 10)])
-
+    print("------------------")
 
 def sprawdzOceny(uczniowie):
-    print("Oceny wszystkich uczniów:")
+    print("\nOceny wszystkich uczniów:")
     for u in uczniowie:
         u.sprawdzOceny()
 
+    print("-------------------------")
+
 
 def dodajRachunki(nauczyciele, uczniowie, planista, ksiegowy):
+    print("\nDodawanie rachunków...")
     for n in nauczyciele:
-        naleznosc = (1000.00 - 20.00) * np.random.random_sample() + 20.00
-        ksiegowy.stworzRachunek(naleznosc, n)
+        naleznosc = (1000.00 + 1000.00) * np.random.random_sample() - 100.00
+        ksiegowy.stworzRachunek(naleznosc, n, "Rachunek nauczyciela")
 
     for u in uczniowie:
-        naleznosc = (1000.00 - 20.00) * np.random.random_sample() + 20.00
-        ksiegowy.stworzRachunek(naleznosc, u)
+        naleznosc = (1000.00 + 100.00) * np.random.random_sample() - 100.00
+        ksiegowy.stworzRachunek(naleznosc, u, "Rachunek ucznia")
 
-    ksiegowy.stworzRachunek((1000.00 - 20.00) * np.random.random_sample() + 20.00, planista)
-    ksiegowy.stworzRachunek((1000.00 - 20.00) * np.random.random_sample() + 20.00, ksiegowy)
-
+    ksiegowy.stworzRachunek((1000.00 + 1000.00) * np.random.random_sample() - 1000.00, planista, "Rachunek planisty")
+    ksiegowy.stworzRachunek((1000.00 + 1000.00) * np.random.random_sample() - 1000.00, ksiegowy, "Rachunek ksiegowego")
+    print("-------------------------")
 
 def pokazRachunki(nauczyciele, uczniowie, planista, ksiegowy):
     print("\nRachunki osób:")
@@ -52,6 +55,7 @@ def pokazRachunki(nauczyciele, uczniowie, planista, ksiegowy):
     uczniowie[np.random.randint(0, len(uczniowie))].sprawdzRachunki()
     planista.sprawdzRachunki()
     ksiegowy.sprawdzRachunki()
+    print("-----------------")
 
 
 def main():
@@ -63,8 +67,6 @@ def main():
     sprawdzOceny(u)
     dodajRachunki(n, u, p, k)
     pokazRachunki(n, u, p, k)
-    # siema
-
 
 
 if __name__ == '__main__':

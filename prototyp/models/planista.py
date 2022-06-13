@@ -1,4 +1,4 @@
-from pracownik import pracownik
+from models.pracownik import pracownik
 
 
 class planista(pracownik):

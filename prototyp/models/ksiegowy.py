@@ -1,4 +1,4 @@
-from pracownik import pracownik
+from models.pracownik import pracownik
 
 
 class ksiegowy(pracownik):
@@ -9,5 +9,5 @@ class ksiegowy(pracownik):
         pass
         #To Do
 
-    def stworzRachunek(self, naleznosc, osoba):
-        osoba.dodajRachunek(naleznosc)
+    def stworzRachunek(self, naleznosc, osoba, comment):
+        osoba.dodajRachunek(naleznosc, comment)
