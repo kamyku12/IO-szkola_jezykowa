@@ -31,22 +31,21 @@ def sprawdzOceny(uczniowie):
     print("\nOceny wszystkich uczniów:")
     for u in uczniowie:
         u.sprawdzOceny()
-
     print("-------------------------")
 
 
 def dodajRachunki(nauczyciele, uczniowie, planista, ksiegowy):
     print("\nDodawanie rachunków...")
     for n in nauczyciele:
-        naleznosc = (1000.00 + 1000.00) * np.random.random_sample() - 100.00
+        naleznosc = (1000.00 + 100.00) * np.random.random_sample() - 100.00
         ksiegowy.stworzRachunek(naleznosc, n, "Rachunek nauczyciela")
 
     for u in uczniowie:
         naleznosc = (1000.00 + 100.00) * np.random.random_sample() - 100.00
         ksiegowy.stworzRachunek(naleznosc, u, "Rachunek ucznia")
 
-    ksiegowy.stworzRachunek((1000.00 + 1000.00) * np.random.random_sample() - 1000.00, planista, "Rachunek planisty")
-    ksiegowy.stworzRachunek((1000.00 + 1000.00) * np.random.random_sample() - 1000.00, ksiegowy, "Rachunek ksiegowego")
+    ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00, planista, "Rachunek planisty")
+    ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00, ksiegowy, "Rachunek ksiegowego")
     print("-------------------------")
 
 def pokazRachunki(nauczyciele, uczniowie, planista, ksiegowy):

@@ -21,7 +21,7 @@ class osoba:
         self.rachunki.append(rachunek(naleznosc, comment))
 
     def sprawdzRachunki(self):
-        print("\n" + self.ImieNazwisko())
+        print(self)
         if self.rachunki:
             for r in self.rachunki:
                 print(r)
@@ -33,7 +33,7 @@ class osoba:
 
 
     def sprawdzWplaty(self):
-        print("\n" + self.ImieNazwisko())
+        print(self)
         for r in self.rachunki:
             print(r.id)
             for w in r.wplaty:
@@ -44,5 +44,5 @@ class osoba:
             if rachunek == r.id:
                 r.oplac(ile)
 
-    def ImieNazwisko(self):
-        return self.imie + " " + self.nazwisko
+    def __str__(self):
+        return "\n" + self.imie + " " + self.nazwisko

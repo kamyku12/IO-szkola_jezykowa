@@ -10,7 +10,7 @@ class uczen(osoba):
         super().__init__(imie, nazwisko, pesel, telefon)
 
     def sprawdzOceny(self):
-        print("\n" + self.imie + " " + self.nazwisko)
+        print(self)
         if self.oceny:
             for o in self.oceny:
                 print(o)
@@ -18,8 +18,6 @@ class uczen(osoba):
         else:
             print("Brak ocen")
             return
-
-
 
 
     def dodajOcene(self, stopien, waga, nauczyciel):
@@ -34,3 +32,6 @@ class uczen(osoba):
         self.oceny.append(ocena(stopien, waga, nauczyciel))
         print("Dodano ocenę")
         return
+
+    def __str__(self):
+        return "\n" + self.imie + " " + self.nazwisko
