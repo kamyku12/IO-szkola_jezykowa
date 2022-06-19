@@ -102,7 +102,7 @@ def pokazRachunki(nauczyciele, grupy, planista, ksiegowy, admin):
 
 
 def main():
-    admin = administrator(1,
+    admin = administrator("1",
                           "Admin",
                           "Adminowicz",
                           "82749301231",
