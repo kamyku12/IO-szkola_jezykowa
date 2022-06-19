@@ -20,7 +20,7 @@ class uczen(osoba):
             return
 
 
-    def dodajOcene(self, stopien, waga, nauczyciel):
+    def dodajOcene(self, stopien, waga, nauczyciel, komentarz):
         if stopien < 1 or stopien > 6:
             print("Nieprawidlowy stopien")
             return
@@ -29,7 +29,7 @@ class uczen(osoba):
             print("Nieprawidlowa waga oceny")
             return
 
-        self.oceny.append(ocena(stopien, waga, nauczyciel))
+        self.oceny.append(ocena(stopien, waga, nauczyciel, komentarz))
         print("Dodano ocenę")
         return
 

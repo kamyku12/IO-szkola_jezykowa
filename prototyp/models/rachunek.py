@@ -31,5 +31,9 @@ class rachunek():
         return
 
     def __str__(self):
-        return "Id - " + str(self.id) + "\nNależność - " + str(self.naleznosc) + \
-               "\nSaldo - " + str(self.saldo) + "\nKomentarz - " + str(self.comment)
+        return ("Id - " + str(self.id) +
+                "\nNależność - " + str(self.naleznosc) +
+                "\nSaldo - " + str(self.saldo) +
+                "\nTermin - " + str(self.termin) +
+                "\nKomentarz - " + str(self.comment)
+        )

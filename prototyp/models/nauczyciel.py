@@ -2,12 +2,12 @@ from models.pracownik import pracownik
 
 
 class nauczyciel(pracownik):
-    def __init__(self, id, imie, nazwisko, pesel, telefon, wychowawca):
-        self.wychowawca = wychowawca
+    def __init__(self, id, imie, nazwisko, pesel, telefon):
+        self.wychowawca = None
         super().__init__(id, imie, nazwisko, pesel, telefon)
 
-    def dodajOcene(self, stopien, waga, uczen):
-        uczen.dodajOcene(stopien, waga, self)
+    def dodajOcene(self, stopien, waga, uczen, komentarz):
+        uczen.dodajOcene(stopien, waga, self, komentarz)
 
     def edytujOcene(self, ocena):
         pass

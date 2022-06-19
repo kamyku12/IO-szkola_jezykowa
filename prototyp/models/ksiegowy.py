@@ -5,7 +5,7 @@ class ksiegowy(pracownik):
     def __init__(self, id, imie, nazwisko, pesel, telefon):
         super().__init__(id, imie, nazwisko, pesel, telefon)
 
-    def edytujRachunek(self, Rachunek):
+    def edytujRachunek(self, osoba, rachunek, naleznosc, comment, termin):
         pass
         #To Do
 
