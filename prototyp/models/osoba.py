@@ -15,8 +15,7 @@ class osoba:
 
     def dodajRachunek(self, naleznosc, comment):
         if naleznosc <= 0.00:
-            print("Należność nie może być wartością mniejszą lub równą zero")
-            return
+            raise ValueError("Należność nie może być wartością mniejszą lub równą zero")
 
         self.rachunki.append(rachunek(naleznosc, comment))
 

@@ -19,15 +19,12 @@ class uczen(osoba):
             print("Brak ocen")
             return
 
-
     def dodajOcene(self, stopien, waga, nauczyciel, komentarz):
         if stopien < 1 or stopien > 6:
-            print("Nieprawidlowy stopien")
-            return
+            raise ValueError("Nieprawidlowy stopien")
 
         if waga < 1 or waga > 10:
-            print("Nieprawidlowa waga oceny")
-            return
+            raise ValueError("Nieprawidlowa waga oceny")
 
         self.oceny.append(ocena(stopien, waga, nauczyciel, komentarz))
         print("Dodano ocenę")

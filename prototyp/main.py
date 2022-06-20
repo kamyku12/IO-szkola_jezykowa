@@ -48,10 +48,13 @@ def dodajOceny(nauczyciele, grupy):
     for i in range(np.random.randint(1, 30)):
         for g in grupy:
             if(g.uczniowie):
-                nauczyciele[np.random.randint(0, 3)].dodajOcene(np.random.randint(0, 8),
-                                                                np.random.randint(0, 12),
-                                                                g.uczniowie[np.random.randint(0, len(g.uczniowie))],
-                                                                "Komentarz " + str(i))
+                try:
+                    nauczyciele[np.random.randint(0, 3)].dodajOcene(np.random.randint(0, 8),
+                                                                    np.random.randint(0, 12),
+                                                                    g.uczniowie[np.random.randint(0, len(g.uczniowie))],
+                                                                    "Komentarz " + str(i))
+                except ValueError as e:
+                    print(str(e))
     print("------------------")
 
 
@@ -66,27 +69,37 @@ def sprawdzOceny(grupy):
 def dodajRachunki(nauczyciele, grupy, planista, ksiegowy, admin):
     print("\nDodawanie rachunków...")
     for n in nauczyciele:
+
         naleznosc = (1000.00 + 100.00) * np.random.random_sample() - 100.00
-        ksiegowy.stworzRachunek(naleznosc,
-                                n,
-                                "Rachunek nauczyciela")
+        try:
+            ksiegowy.stworzRachunek(naleznosc,
+                                    n,
+                                    "Rachunek nauczyciela")
+        except ValueError as e:
+            print(str(e))
 
     for g in grupy:
         for u in g.uczniowie:
             naleznosc = (1000.00 + 100.00) * np.random.random_sample() - 100.00
-            ksiegowy.stworzRachunek(naleznosc,
-                                    u,
-                                    "Rachunek ucznia")
+            try:
+                ksiegowy.stworzRachunek(naleznosc,
+                                        u,
+                                        "Rachunek ucznia")
+            except ValueError as e:
+                print(str(e))
 
-    ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00,
-                            planista,
-                            "Rachunek planisty")
-    ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00,
-                            ksiegowy,
-                            "Rachunek ksiegowego")
-    ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00,
-                            admin,
-                            "Rachunek administratora")
+    try:
+        ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00,
+                                planista,
+                                "Rachunek planisty")
+        ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00,
+                                ksiegowy,
+                                "Rachunek ksiegowego")
+        ksiegowy.stworzRachunek((1000.00 + 100.00) * np.random.random_sample() - 100.00,
+                                admin,
+                                "Rachunek administratora")
+    except ValueError as e:
+        print(str(e))
     print("-------------------------")
 
 
@@ -121,6 +134,7 @@ def main():
                             "Bckiewicz",
                             "72639012789",
                             "523817950")
+
     dodajOceny(n, g)
     sprawdzOceny(g)
     dodajRachunki(n, g, p, k, admin)

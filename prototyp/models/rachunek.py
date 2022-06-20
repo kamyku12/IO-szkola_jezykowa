@@ -14,11 +14,9 @@ class rachunek():
         self.wplaty = []
         self.comment = comment
 
-
     def oplac(self, ile):
         if ile <= 0.00:
-            print("Nie można utworzyć wpłaty dla wartości mniejszych lub równych 0.00zł")
-            return
+            raise ValueError("Nie można utworzyć wpłaty dla wartości mniejszych lub równych 0.00zł")
 
         self.wplaty.append(wplata(ile))
         self.saldo = self.saldo + ile
